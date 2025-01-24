@@ -2699,6 +2699,18 @@ body.modal-open {
   font-weight: 700;
   color: white;
 }
+/* Pastikan tulisan author tetap hitam */
+.post-author {
+  color: black !important; /* Warna teks tetap hitam */
+  font-weight: 500; /* Tambahkan ketebalan jika diperlukan */
+  margin: 0; /* Hapus margin tambahan */
+}
+
+/* Warna post-author tidak berubah saat di-hover */
+.post-item-link:hover .post-author {
+  color: black !important; /* Tetap hitam meskipun di-hover */
+}
+
 
 .blog-posts article {
   background-color: var(--surface-color);
