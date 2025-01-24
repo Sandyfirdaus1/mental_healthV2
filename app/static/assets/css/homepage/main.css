@@ -3142,6 +3142,22 @@ body.modal-open {
   font-weight: 700 !important; /* Menebalkan teks dengan prioritas */
 }
 
+.post-item-link:hover .post-item {
+  transform: scale(1.05); /* Membesarkan sedikit */
+  transition: transform 0.3s ease;
+  cursor: pointer; /* Menampilkan pointer saat di-hover */
+}
+
+
+/* Post hover effect */
+.post-item {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.post-item:hover {
+  transform: scale(1.05); /* Membesar saat di-hover */
+}
+
 .program-posts article {
   background-color: var(--primary-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
