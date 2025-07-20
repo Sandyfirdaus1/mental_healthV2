@@ -5,3 +5,22 @@ app/utils/ffmpeg/*.exe
 __pycache__/
 *.py[cod]
 *$py.class 
+
+# Virtual environment
+venv/
+
+# VSCode settings
+.vscode/
+
+# Git folder
+.git/
+
+# OS/Editor files
+.DS_Store
+Thumbs.db
+
+# Deployment/CI files not needed for Vercel
+Dockerfile
+railway.toml
+start.sh
+setup_ffmpeg.py 

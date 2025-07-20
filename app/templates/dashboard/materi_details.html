@@ -263,6 +263,13 @@
           </a>
           {% endif %}
 
+          {% if materi.journal %}
+          <h2 class="section-title">Jurnal Latihan Mindfulness</h2>
+          <a href="{{ url_for('static', filename=materi.journal) }}" class="resource-link" target="_blank">
+          <i class="bi bi-file-pdf"></i> Unduh PDF
+          </a>
+          {% endif %}
+
           {% if materi.audio %}
           <h2 class="section-title">Audio Relaksasi</h2>
           {% for audio in materi.audio %}

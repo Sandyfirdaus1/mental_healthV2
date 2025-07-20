@@ -31,6 +31,7 @@ def materi_details(program_title, materi_title):
             'judul': materi['title'],
             'deskripsi': materi.get('description', ''),
             'naskah': materi.get('summary_pdf', ''),
+            'journal': materi.get('journal', ''),
             'ilustrasi': [],
             'audio': [],
             'audio_pembelajaran': [],

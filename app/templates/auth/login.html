@@ -66,6 +66,110 @@
             border-color: #39ce7d !important;
             box-shadow: 0 0 0 0.2rem rgba(57, 206, 125, 0.25) !important;
         }
+        body.img.js-fullheight {
+          background-size: cover;
+          background-position: center;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .main-center-container {
+          width: 100vw;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .login-wrap {
+          background: rgba(16, 16, 16, 0.18);
+          border-radius: 2em;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+          padding: 4.5em 5em 4em 5em;
+          margin-top: 0;
+          width: 100%;
+          max-width: 400px;
+        }
+        .form-control {
+          background: rgba(255, 255, 255, 0.4);
+          border-radius: 2em;
+          border: none;
+          margin-bottom: 1em;
+          font-size: 1.1em;
+          padding: 0.9em 1.5em;
+          color: #222;
+          width: 85% !important;
+        }
+        .form-control:focus {
+          background: rgba(255, 255, 255, 0.6);
+          box-shadow: 0 0 0 2px #b2dfdb;
+          color: #222;
+        }
+        .btn {
+          border-radius: 2em;
+          font-size: 1.2em;
+          background: #ffd6c0;
+          color: #222;
+          border: none;
+          font-weight: bold;
+          transition: background 0.2s;
+        }
+        .btn:hover {
+          background: #ffbfa0;
+          color: #222;
+        }
+        .form-check-label,
+        .form-check-input {
+          cursor: pointer;
+        }
+        .heading-section {
+          color: #fff;
+          font-weight: 600;
+          margin-bottom: 1.5em;
+          text-align: center;
+        }
+        .register-btn {
+          color: #fff;
+          text-decoration: underline;
+        }
+        .register-btn:hover {
+          color: #ffd6c0;
+        }
+        .form-group p.help {
+          color: #e57373;
+          font-size: 0.95em;
+          margin: 0.2em 0 0 0.5em;
+        }
+        .submit {
+          width: 100% !important;
+        }
+      @media (max-width: 768px) {
+        .login-wrap {
+          padding: 2em 1em 2em 1em;
+          max-width: 100%;
+        }
+        .form-control {
+          font-size: 1em;
+          padding: 0.7em 1em;
+        }
+        .btn {
+          font-size: 1em;
+          padding: 0.7em 1em;
+        }
+        .heading-section {
+          font-size: 1.3em;
+        }
+      }
+      @media (max-width: 480px) {
+        .login-wrap {
+          padding: 1.2em 0.5em 1.2em 0.5em;
+        }
+        .heading-section {
+          font-size: 1.1em;
+        }
+      }
     </style>
 
     <script>
@@ -163,7 +267,7 @@
             popup: 'swal-wide',
             input: 'swal2-input-custom'
           },
-          preConfirm: () => {
+          preConfirm: () => { 
             const username = document.getElementById('username-forgot').value;
             const email = document.getElementById('email-forgot').value;
             
@@ -212,93 +316,89 @@
   class="img js-fullheight"
   style="background-image: url(../static/assets/img/bg-login.jpg)"
 >
-  <section class="ftco-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center mb-5">
-          <h2 class="heading-section">Masuk</h2>
+  <div class="main-center-container">
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Masuk</h2>
+          </div>
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-          <div class="login-wrap p-0">
-            {% if reset_error %}
-            <div class="alert alert-danger text-center mb-4">
-                {{ reset_error }}
-                <br>
-                <a href="#" onclick="forgotPassword()" class="alert-link">Klik di sini untuk meminta link baru</a>
-            </div>
-            {% endif %}
-            <form action="#" class="signin-form">
-              <div class="form-group">
-                <input
-                  type="username"
-                  class="form-control"
-                  placeholder="Username"
-                  id="username"
-                />
-                <p id="helpusername" class="help is-hidden"></p>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap p-0">
+              {% if reset_error %}
+              <div class="alert alert-danger text-center mb-4">
+                  {{ reset_error }}
+                  <br>
+                  <a href="#" onclick="forgotPassword()" class="alert-link">Klik di sini untuk meminta link baru</a>
               </div>
-              <div class="form-group">
-                <input
-                  id="password"
-                  type="password"
-                  class="form-control"
-                  placeholder="Password"
-                />
-                <p id="helpPassword" class="help is-hidden"></p>
-              </div>
+              {% endif %}
+              <form action="#" class="signin-form">
+                <div class="form-group">
+                  <input
+                    type="username"
+                    class="form-control"
+                    placeholder="Username"
+                    id="username"
+                  />
+                  <p id="helpusername" class="help is-hidden"></p>
+                </div>
+                <div class="form-group">
+                  <input
+                    id="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <p id="helpPassword" class="help is-hidden"></p>
+                </div>
 
-              <!-- Kotak centang untuk menampilkan password -->
-              <div class="form-group">
-                <input
-                  type="checkbox"
-                  id="showPassword"
-                  onclick="togglePasswordVisibility()"
-                />
-                <label for="showPassword" style="color: #fff"
-                  >Tampilkan Password</label
-                >
-              </div>
+                <!-- Kotak centang untuk menampilkan password -->
+                <div class="form-group">
+                  <input
+                    type="checkbox"
+                    id="showPassword"
+                    onclick="togglePasswordVisibility()"
+                  />
+                  <label for="showPassword" style="color: #fff"
+                    >Tampilkan Password</label
+                  >
+                </div>
 
-              <div class="form-group">
-                <button
-                  type="button"
-                  class="form-control btn btn-primary submit px-3"
-                  onclick="login()"
-                >
-                  Masuk
-                </button>
-              </div>
+                <div class="form-group">
+                  <button
+                    type="button"
+                    class="form-control btn btn-primary submit w-100 submit"
+                    onclick="login()"
+                  >
+                    Masuk
+                  </button>
+                </div>
 
-              <div class="form-group">
-                <div class="w-100">
-                  <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div>
-                      <span style="color: #fff">Belum punya akun?</span>
-                      <a href="/register" style="color: #fff; margin-left: 5px" class="register-btn">
-                        Daftar
-                      </a>
+                <div class="form-group">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div>
+                        <span style="color: #fff">Belum punya akun?</span>
+                        <a href="/register" style="color: #fff; margin-left: 5px" class="register-btn">
+                          Daftar
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <a href="/ubah-password" style="color: #fff">
-                        Ubah Password
-                      </a>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap w-100">
+                      <a href="/ubah-password" style="color: #fff">Ubah Password</a>
+                      <a href="#" onclick="forgotPassword()" style="color: #fff">Lupa Password?</a>
                     </div>
-                  </div>
-                  <div class="text-left">
-                    <a href="#" onclick="forgotPassword()" style="color: #fff">
-                      Lupa Password?
-                    </a>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </body>
 
 

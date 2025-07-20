@@ -93,9 +93,7 @@
 
         // Validasi Email
         if (email === "") {
-          $("#helpEmail")
-            .text("Silahkan Masukan Email!")
-            .addClass("is-danger");
+          $("#helpEmail").text("Silahkan Masukan Email!").addClass("is-danger");
           $("#email").focus();
           return;
         } else if (!is_email(email)) {
@@ -142,11 +140,11 @@
         $.ajax({
           type: "POST",
           url: "/register/save",
-          data: { 
-            namaLengkap: namaLengkap, 
-            username: username, 
+          data: {
+            namaLengkap: namaLengkap,
+            username: username,
             email: email,
-            password: password 
+            password: password,
           },
           success: function (response) {
             if (response["exists"]) {
@@ -185,101 +183,208 @@
           : "password";
       }
     </script>
+    <style>
+      body.img.js-fullheight {
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-center-container {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .login-wrap {
+        background: rgba(9, 9, 9, 0.18);
+        border-radius: 2em;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 2.5em 2em 2em 2em;
+        margin-top: 0;
+        width: 100%;
+        max-width: 400px;
+      }
+      .form-control {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 2em;
+        border: none;
+        margin-bottom: 1em;
+        font-size: 1.1em;
+        padding: 0.9em 1.5em;
+        color: #222;
+      }
+      .form-control:focus {
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 0 2px #b2dfdb;
+        color: #222;
+      }
+      .btn {
+        border-radius: 2em;
+        font-size: 1.2em;
+        background: #ffd6c0;
+        color: #222;
+        border: none;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+      .submit {
+        width: 85% !important;
+      }
+      .btn:hover {
+        background: #ffbfa0;
+        color: #222;
+      }
+      .form-check-label,
+      .form-check-input {
+        cursor: pointer;
+      }
+      .heading-section {
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 1.5em;
+        text-align: center;
+      }
+      .register-btn {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .register-btn:hover {
+        color: #ffd6c0;
+      }
+      .form-group p.help {
+        color: #e57373;
+        font-size: 0.95em;
+        margin: 0.2em 0 0 0.5em;
+      }
+      @media (max-width: 768px) {
+        .login-wrap {
+          padding: 2em 1em 2em 1em;
+          max-width: 100%;
+        }
+        .form-control {
+          font-size: 1em;
+          padding: 0.7em 1em;
+        }
+        .btn {
+          font-size: 1em;
+          padding: 0.7em 1em;
+        }
+        .heading-section {
+          font-size: 1.3em;
+        }
+      }
+      @media (max-width: 480px) {
+        .login-wrap {
+          padding: 1.2em 0.5em 1.2em 0.5em;
+        }
+        .heading-section {
+          font-size: 1.1em;
+        }
+      }
+    </style>
   </head>
   <body
     class="img js-fullheight"
     style="background-image: url(../static/assets/img/bg-login.jpg)"
   >
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-2 text-center mb-2">
-            <h2 class="heading-section">Daftar</h2>
+    <div class="main-center-container">
+      <section class="ftco-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-2 text-center mb-2">
+              <h2 class="heading-section">DAFTAR</h2>
+            </div>
           </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-4">
-            <div class="login-wrap p-0">
-              <form action="#" class="signin-form">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Nama Lengkap"
-                    id="namaLengkap"
-                  />
-                  <p id="helpNamaLengkap" class="help is-hidden"></p>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="username"
-                    class="form-control"
-                    placeholder="Username"
-                    id="username"
-                  />
-                  <p id="helpusername" class="help is-hidden"></p>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email"
-                    id="email"
-                  />
-                  <p id="helpEmail" class="help is-hidden"></p>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                    id="password"
-                  />
-                  <p id="helpPassword" class="help is-hidden"></p>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Konfirmasi Password"
-                    id="konfirmasiPassword"
-                  />
-                  <p id="helpKonfirmasiPassword" class="help is-hidden"></p>
-                </div>
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="showPasswordCheckbox"
-                    onclick="togglePasswordVisibility()"
-                  />
-                  <label class="form-check-label" for="showPasswordCheckbox">
-                    Tampilkan Password
-                  </label>
-                </div>
-                <div class="form-group">
-                  <button
-                    type="button"
-                    class="form-control btn btn-primary submit px-3"
-                    onclick="daftar()"
-                  >
-                    Daftar
-                  </button>
-                </div>
-                <div class="form-group d-md-flex">
-                  <p>
-                    Sudah punya akun?
-                    <a href="/login" style="color: #fff" class="register-btn"
-                      >Login</a
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+              <div class="login-wrap p-0">
+                <form action="#" class="signin-form">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nama Lengkap"
+                      id="namaLengkap"
+                    />
+                    <p id="helpNamaLengkap" class="help is-hidden"></p>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="username"
+                      class="form-control"
+                      placeholder="Username"
+                      id="username"
+                    />
+                    <p id="helpusername" class="help is-hidden"></p>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      id="email"
+                    />
+                    <p id="helpEmail" class="help is-hidden"></p>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      id="password"
+                    />
+                    <p id="helpPassword" class="help is-hidden"></p>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Konfirmasi Password"
+                      id="konfirmasiPassword"
+                    />
+                    <p id="helpKonfirmasiPassword" class="help is-hidden"></p>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="showPasswordCheckbox"
+                      onclick="togglePasswordVisibility()"
+                    />
+                    <label class="form-check-label" for="showPasswordCheckbox">
+                      Tampilkan Password
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="form-control btn btn-primary submit w-100"
+                      onclick="daftar()"
                     >
-                  </p>
-                </div>
-              </form>
+                      Daftar
+                    </button>
+                  </div>
+                  <div class="form-group d-md-flex">
+                    <p>
+                      Sudah punya akun?
+                      <a href="/login" style="color: #fff" class="register-btn"
+                        >Login</a
+                      >
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Scripts -->
     <script src="{{url_for('static', filename='assets/js/login/jquery.min.js')}}"></script>
